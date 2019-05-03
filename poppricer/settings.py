@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# Rel path
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,7 +29,6 @@ SECRET_KEY = 'yofgf688sp2bid*^k9#pt)rl&s_v$zzoz&iecwciizp2()$jct'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'poppricer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [PROJECT_PATH + '/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
