@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # My Apps
     'pricer',
+    'build_log',
 
 ]
 
