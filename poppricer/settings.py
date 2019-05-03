@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Rel path
+from poppricer import secure
+
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,11 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yofgf688sp2bid*^k9#pt)rl&s_v$zzoz&iecwciizp2()$jct'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG:
+    SECRET_KEY = 'yofgf688sp2bid*^k9#pt)rl&s_v$zzoz&iecwciizp2()$jct'
+else:
+    SECRET_KEY = secure.secret_key
 
 ALLOWED_HOSTS = []
 
@@ -82,8 +87,12 @@ WSGI_APPLICATION = 'poppricer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'poppricer',
+        'USER': secure.username,
+        'PASSWORD': secure.password,
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
