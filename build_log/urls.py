@@ -10,5 +10,6 @@ urlpatterns = [
     # Homepage
     url(r'^$', views.index, name='index'),
     url(r'^topics/$', views.topics, name='topics'),
-    url(r'^topics/(?<topic_id>\d+)/$', views.topic, name="topic"),
+    url(r'^topics/(?P<topic_title>\w+)/$', views.topic, name="topic"),
+    url(r'^entry/(?P<entry_name>\w+)/$', views.entry, name="entry")
 ]

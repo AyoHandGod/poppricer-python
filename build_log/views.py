@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Topic
+from .models import Topic, Entry
 
 
 # Create your views here.
@@ -15,9 +15,17 @@ def topics(request):
     return render(request, 'build_log/topics.html', context) # pass back template and context
 
 
-def topic(request, topic_id):
+def topic(request, topic_title):
     """Show a single topic and its entries"""
-    topic = Topic.objects.get(id=topic_id) # find a topic via its id
-    entries = topic.entry_set.order_by('-date-added')
-    context = {'topic': topic, 'entries': entries} # return topic and entries as context data
+    coverage = Topic.objects.get(title=topic_title)  # find a topic via its title
+    entries = coverage.entry_set.order_by('-date_added')
+    context = {'topic': coverage, 'entries': entries}  # return topic and entries as context data
     return render(request, 'build_log/topic.html', context)
+
+
+def entry(request, entry_name):
+    """Shows a single entry"""
+    story = Entry.objects.get(name=entry_name)  # grab the entry via its title
+    context = {'entry': story}
+    return render(request, 'build_log/entry.html', context)
+

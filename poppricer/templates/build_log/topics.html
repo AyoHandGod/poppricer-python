@@ -5,7 +5,7 @@
 <div class="Topics">
     <ul class="nes-list is-circle">
         {% for topic in topics %}
-        <li class="nes-text is-warning">{{ topic }}</li>
+        <li class="nes-text is-warning"><a href="{% url 'build_log:topic' topic.title %}">{{ topic }}</a></li>
         {% empty %}
         <li>No topics have been added yet.</li>
         {% endfor %}

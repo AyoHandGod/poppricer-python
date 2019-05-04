@@ -1,0 +1,13 @@
+{% extends "build_log/base.html" %}
+
+{% block content %}
+
+<div class="Topics">
+    <p>Entry: {{ entry.name }}</p>
+
+    <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+    <p>{{ entry.text}}</p>
+
+</div>
+
+{% endblock content %}

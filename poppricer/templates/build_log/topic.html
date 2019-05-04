@@ -1,5 +1,23 @@
-{% extends 'build_log/base.html' %}
 
-{ % block content %}
+{% extends "build_log/base.html" %}
 
-{ % endblock content %}
+{% block content %}
+
+<div class="Topics">
+    <p>Topic: {{ topic }}</p>
+
+    <p>Entries: </p>
+    <ul class="nes-list is-circle">
+        {% for entry in entries %}
+        <li class="nes-text is-warning">
+           <a href="{% url 'build_log:entry' entry.name %}"><p>{{ entry.name }}</p></a>
+            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ entry.text|linebreaks }}</p>
+        </li>
+        {% empty %}
+        <li>There are no entries for this topic.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}
