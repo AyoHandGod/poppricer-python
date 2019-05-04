@@ -17,7 +17,7 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'entities'
+        verbose_name_plural = 'entries'
 
     def __str__(self):
         return self.text[:50] + '....'
