@@ -9,4 +9,5 @@ app_name = 'build_log'
 urlpatterns = [
     # Homepage
     url(r'^$', views.index, name='index'),
+    url(r'^topics/$', views.topics, name='topics')
 ]

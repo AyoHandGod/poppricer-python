@@ -2,13 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Nintendo Css -->
+    <!-- minify -->
+    <link href="https://unpkg.com/nes.css@2.1.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P" rel="stylesheet">
+
     <title>Funko Pop Pricer</title>
 </head>
 <body>
-    <p>
-        <a href="{% url 'build_log:index' %}">Build Logs</a>
-    </p>
-{% block content %} {% endblock content %}
+    <div class="nes-container with-title">
+        <p class="Primary title">
+            <a class="nes-text is-primary" href="{% url 'build_log:index' %}">Build Logs</a> -
+            <a class="nes-text" href="{% url 'build_log:topics' %}">Topics</a>
+        </p>
+        {% block content %} {% endblock content %}
+    </div>
+
+
+    <!-- Bootstrap scripts -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin></script>
 
 </body>
 </html>
