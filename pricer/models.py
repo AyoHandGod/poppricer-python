@@ -1,9 +1,10 @@
 from django.db import models
 import requests
 from bs4 import BeautifulSoup
-
+import pricer.web
 
 BASE_URL = "https://www.poppriceguide.com/guide/searchresults.php?search="
+
 
 # Create your models here.
 class Pop(models.Model):
@@ -12,13 +13,7 @@ class Pop(models.Model):
     url = models.CharField(max_length=200)
     imageUrl = models.CharField(max_length=200)
 
+    def __str__(self):
+        return "{} : {}".format(self.name, self.value)
 
-    def pop_query(self):
-        response = requests.get(BASE_URL + self.name)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        item_divs = soup.findAll("div", {"class": "itemrow"})
-        name = item_divs[0].findNext("div", class_ = "itemname").string.strip()
-        value = item_divs[0].findNext("div", class_="itemvalue").string.strip()
-        url = item_divs[0].a['href']
-        image_url = item_divs[0].img['src']
 
