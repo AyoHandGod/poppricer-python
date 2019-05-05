@@ -8,6 +8,8 @@
     <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
     <p>{{ entry.text}}</p>
 
+    <a href="{% url 'build_log:topic' entry.topic %}"><p>{{ entry.topic }}</p></a>
+
 </div>
 
 {% endblock content %}
