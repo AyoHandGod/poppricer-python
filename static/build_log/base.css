@@ -15,8 +15,9 @@ html, body, pre, code, kbd, samp {
 
           /* Then we define how is distributed the remaining space */
           justify-content: space-around;
+          background-color: red;
         }
 
-.item {
+.items {
             flex-grow: <number>; /* default 0 */
         }

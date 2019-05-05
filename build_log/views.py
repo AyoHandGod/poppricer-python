@@ -23,9 +23,9 @@ def topic(request, topic_title):
     return render(request, 'build_log/topic.html', context)
 
 
-def entry(request, entry_name):
+def entry(request, entry_url):
     """Shows a single entry"""
-    story = Entry.objects.get(name=entry_name)  # grab the entry via its title
+    story = Entry.objects.get(name=entry_url)  # grab the entry via its title
     context = {'entry': story}
     return render(request, 'build_log/entry.html', context)
 
