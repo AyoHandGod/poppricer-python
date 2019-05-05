@@ -16,3 +16,9 @@ class Pop(models.Model):
     def pop_query(self):
         response = requests.get(BASE_URL + self.name)
         soup = BeautifulSoup(response.content, 'html.parser')
+        item_divs = soup.findAll("div", {"class": "itemrow"})
+        name = item_divs[0].findNext("div", class_ = "itemname").string.strip()
+        value = item_divs[0].findNext("div", class_="itemvalue").string.strip()
+        url = item_divs[0].a['href']
+        image_url = item_divs[0].img['src']
+
