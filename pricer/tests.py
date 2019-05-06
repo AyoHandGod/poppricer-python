@@ -10,3 +10,6 @@ class PricerAppTests(TestCase):
         character = input("Please enter character name: ")
         pops = ppgWebQuery(character)
         print(pops[0].name)
+        print(pops[0].value)
+        print(pops[0].url)
+        print(pops[0].imageUrl)
