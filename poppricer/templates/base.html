@@ -28,7 +28,8 @@
     <div class="nes-container with-title">
         <p class="Primary title">
             <a class="nes-text is-success" href="{% url 'build_log:index' %}">Build Logs</a> -
-            <a href="{% url 'build_log:topics' %}">Topics</a>
+            <a href="{% url 'build_log:topics' %}">Topics</a> -
+            <a href="{% url 'pricer:search' %}">Search</a>
         </p>
         {% block content %} {% endblock content %}
 

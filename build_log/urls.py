@@ -1,4 +1,4 @@
-"""Defines URLS patters for Build_logs"""
+"""Defines URL patterns for build_logs"""
 
 from django.conf.urls import url
 

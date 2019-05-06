@@ -20,5 +20,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'', include('build_log.urls', namespace='build_logs')),
-   # path('pricer/', include('pricer.urls', namespace='pricer')),
+    url(r'', include('pricer.urls', namespace='pricer')),
 ]
