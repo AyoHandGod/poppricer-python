@@ -3,8 +3,13 @@
 {% block content %}
 
 <div class="nes-field">
-    <label for="search_field">Find a Pop</label>
-    <input type="text" id="search_field" class="nes-input">
+    <form method="post" action="/search_found/">
+        {% csrf_token %}
+
+        <label for="search_field">Find a Pop</label>
+        <input type="text" id="search_field" class="nes-input" name="search_field">
+        <button type="submit" class="nes-btn is-primary">Search</button>
+    </form>
 </div>
 
 {% endblock content %}
