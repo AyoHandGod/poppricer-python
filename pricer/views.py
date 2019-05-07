@@ -16,6 +16,7 @@ def search(request):
     """
     return render(request, 'pricer/search.html')
 
+
 # Handles search button functionality
 def search_result(request):
     """
@@ -29,15 +30,19 @@ def search_result(request):
         try:
             character = Character.objects.get(name=str(search_target))
             pops = Pop.objects.filter(character=character)
-            html = ("<H1>Lucky Find: {}</H1>".format(character.name))
-            return HttpResponse(html)
+            context = {"character_name": character.name, "pops": pops}
+            return render(request, 'pricer/searchResult.html', context)
 
         except ObjectDoesNotExist:
-            pops = ppgWebQuery(str(search_target))
-            if pops is not None:
-                addPopListToDB(pops)
-                # context = Pop.objects.get(character=search_target)
-                return HttpResponse("Awww yeah! ")
+            poplist = ppgWebQuery(str(search_target))
+            if poplist is not None:
+                addPopListToDB(poplist)
+                character = Character.objects.get(name=str(search_target))
+                pops = Pop.objects.filter(character=character)
+                context = {"character_name": character.name, "pops": pops}
+                return render(request, 'pricer/searchResult.html', context)
+
             return HttpResponse("No character found")
+
     else:
         return render(request, 'pricer/search.html')

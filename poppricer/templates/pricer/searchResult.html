@@ -2,6 +2,20 @@
 
 {% block content %}
 
-<h1> To be updated </h1>
+<div class="Poplist">
+    <p>IP: {{ character_name }}</p>
+
+    <p>Pops found for {{ character_name }}: </p>
+    <ul class="nes-list is-circle">
+        {% for pop in pops %}
+        <li class="nes-text is-warning">
+            ><p>{{ pop.name }}</p>
+            <p>{{ pop.value }}</p>
+            <p>{{ pop.url }}</p>
+            <img src="{{ pop.imageUrl }}"/>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock content %}
