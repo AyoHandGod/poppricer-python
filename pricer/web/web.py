@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from pricer.models import Pop, Character
 from django.core.exceptions import *
+import logging
 
 BASE_URL = "https://www.poppriceguide.com/guide/searchresults.php?search="
 
@@ -35,7 +36,7 @@ def ppgWebQuery(charactername):
     # Gather up the divs that hold Pop information, and create a Character object
     item_divs = soup.findAll("div", class_="itemrow")
     pops = []
-    character = Character(charactername)
+    character = Character(name=charactername)
 
     # For each of the items, create a Pop object and add it to the pops list
     for i in range(len(item_divs)):

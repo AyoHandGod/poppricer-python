@@ -16,7 +16,6 @@ def search(request):
     """
     return render(request, 'pricer/search.html')
 
-
 # Handles search button functionality
 def search_result(request):
     """
@@ -25,26 +24,20 @@ def search_result(request):
         Use search_field data
     :return: HttpResponse depending on results
     """
-    if request.method == 'POST':
-        search_target = request.POST.get('search_field', None)
-
-        # try searching the database for a character with search_target name
+    if request.method == 'GET':
+        search_target = request.GET.get('search_field', None)
         try:
-            character = Character.objects.get(name=search_target)
-            pops = Pop.objects.get(character=character)
+            character = Character.objects.get(name=str(search_target))
+            pops = Pop.objects.filter(character=character)
             html = ("<H1>Lucky Find: {}</H1>".format(character.name))
             return HttpResponse(html)
-        except ObjectDoesNotExist:
-            # search ppg for the search_target
-            pops = ppgWebQuery(search_target)
 
-            # if pops are successfully found, add the to the DB and return the success response.
+        except ObjectDoesNotExist:
+            pops = ppgWebQuery(str(search_target))
             if pops is not None:
                 addPopListToDB(pops)
                 # context = Pop.objects.get(character=search_target)
                 return HttpResponse("Awww yeah! ")
-
-            # if the results are 0
-            return HttpResponse("No pops found for this search.")
+            return HttpResponse("No character found")
     else:
         return render(request, 'pricer/search.html')

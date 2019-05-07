@@ -9,5 +9,5 @@ app_name = 'pricer'
 
 urlpatterns = [
     url(r'^search/$', views.search, name="search"),
-    url(r'^search_found/$', views.search_result)
+    url(r'^search_result/', views.search_result, name="target_character")
 ]
