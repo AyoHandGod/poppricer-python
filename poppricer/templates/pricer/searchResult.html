@@ -8,14 +8,25 @@
     <p>Pops found for {{ character_name }}: </p>
     <ul class="nes-list is-circle">
         {% for pop in pops %}
+        <img src="{{ pop.imageUrl }}"/>
         <li class="nes-text is-warning">
-            ><p>{{ pop.name }}</p>
-            <p>{{ pop.value }}</p>
-            <p>{{ pop.url }}</p>
-            <img src="{{ pop.imageUrl }}"/>
+            <ul class="new-list is-disc">
+                <li>{{ pop.name }}</li>
+                <li>{{ pop.value }}</li>
+                <li><a href="http://poppriceguide.com/{{ pop.url }}">PPG Link</a></li>
+            </ul>
         </li>
         {% endfor %}
     </ul>
+</div>
+
+<div class="nes-field">
+    <form method="get" action="/search_result/">
+
+        <label for="search_field">Find another Pop?</label>
+        <input type="text" id="search_field" class="nes-input" name="search_field">
+        <button type="submit" class="nes-btn is-primary">Search</button>
+    </form>
 </div>
 
 {% endblock content %}
