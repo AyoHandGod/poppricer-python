@@ -15,8 +15,6 @@ import os
 import django_heroku
 
 # Rel path
-from poppricer import secure
-
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
