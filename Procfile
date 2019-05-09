@@ -1,2 +1,1 @@
-web: gunicorn poppricer.wsgi
-web: gunicorn poppricer:app
+web: gunicorn poppricer.wsgi --log-file -

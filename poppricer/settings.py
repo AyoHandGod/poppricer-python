@@ -35,7 +35,7 @@ if DEBUG:
 else:
     SECRET_KEY = secure.secret_key
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["quiet-plains-39051.herokuapp.com"]
 
 # Application definition
 
