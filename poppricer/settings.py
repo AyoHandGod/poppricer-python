@@ -33,7 +33,7 @@ if DEBUG:
 else:
     SECRET_KEY = os.environ.get('SKEY')
 
-ALLOWED_HOSTS = ["quiet-plains-39051.herokuapp.com"]
+ALLOWED_HOSTS = ["poppricer.herokuapp.com"]
 
 # Application definition
 
