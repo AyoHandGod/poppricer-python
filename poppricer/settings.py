@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'poppricer',
         'USER': os.environ.get('UNAME'),
-        'PASSWORD': os.environ.get('DJANGOPWD'),
+        'PASSWORD': os.environ.get('PWD'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
