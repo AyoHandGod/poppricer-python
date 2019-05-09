@@ -14,6 +14,7 @@ class Character(models.Model):
         return self.name
 
 
+# TODO update model with data attribute to use for checking if item should be refreshed.
 class Pop(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=200)

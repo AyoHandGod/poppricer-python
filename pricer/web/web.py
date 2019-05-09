@@ -4,6 +4,7 @@ from pricer.models import Pop, Character
 from django.core.exceptions import *
 import logging
 
+# TODO Consider refactoring and implementing OOP principles where possible
 BASE_URL = "https://www.poppriceguide.com/guide/searchresults.php?search="
 
 
@@ -62,6 +63,8 @@ def countOfPopsOnPage(soupedHtml):
     return item_count
 
 
+# TODO Updated DB adder to check if item already in DB
+# TODO Refactor
 def addPopListToDB(popList):
     """
     Adds a list of Pops to the Database

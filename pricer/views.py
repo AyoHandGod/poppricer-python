@@ -29,7 +29,7 @@ def search_result(request):
         search_target = request.GET.get('search_field', None)
         try:
             character = Character.objects.get(name=str(search_target))
-            pops = Pop.objects.filter(character=character)
+            pops = Pop.objects.filter(character=character).order_by('-value')
             context = {"character_name": character.name, "pops": pops}
             return render(request, 'pricer/searchResult.html', context)
 

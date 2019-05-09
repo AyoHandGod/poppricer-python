@@ -5,11 +5,12 @@
 <div class="Poplist">
     <p>IP: {{ character_name }}</p>
 
+    <!-- TODO add boxing around each li -->
     <p>Pops found for {{ character_name }}: </p>
     <ul class="nes-list is-circle">
         {% for pop in pops %}
         <img src="{{ pop.imageUrl }}"/>
-        <li class="nes-text is-warning">
+        <li class="nes-text is-success">
             <ul class="new-list is-disc">
                 <li>{{ pop.name }}</li>
                 <li>{{ pop.value }}</li>
