@@ -31,9 +31,9 @@ DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
-    SECRET_KEY = 'yofgf688sp2bid*^k9#pt)rl&s_v$zzoz&iecwciizp2()$jct'
+    SECRET_KEY = os.environ.get('SKEY')
 else:
-    SECRET_KEY = secure.secret_key
+    SECRET_KEY = os.environ.get('SKEY')
 
 ALLOWED_HOSTS = ["quiet-plains-39051.herokuapp.com"]
 
@@ -91,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'poppricer',
-        'USER': secure.username,
-        'PASSWORD': secure.password,
+        'USER': os.environ.get('UNAME'),
+        'PASSWORD': os.environ.get('DJANGOPWD'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
